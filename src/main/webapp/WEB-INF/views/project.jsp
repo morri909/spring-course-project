@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,23 +16,36 @@
 <body>
 	<jsp:include page="../views/fragments/header.jsp"></jsp:include>
 	<div class="container">
-		<h2>Projects</h2>
-		<table class="table table-hover">
-			<tbody>
-				<tr>
-					<th>Name</th>
-					<th>Sponsor</th>
-					<th>Description</th>
-				</tr>
-				<c:forEach items="${projects}" var="project">
-				<tr>
-					<td><a href="<spring:url value="/project/${project.projectId}"/>">${project.name}</a></td>
-					<td>${project.sponsor}</td>
-					<td>${project.description}</td>
-				</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		<div class="row">
+			<div class="form-group">
+				<label for="project-name">Name</label>
+				<span>${project.name}</span>
+			</div>
+			<div class="form-group">
+				<label for="type">Type</label>
+				<span>${project.type}</span>
+			</div>
+			<div class="form-group">
+				<label for="sponsor">Sponsor</label>
+				<span>${project.sponsor}</span>
+			</div>
+			<div class="form-group">
+				<label for="funds">Authorized Funds</label>
+				<span>${project.authorizedFunds}</span>
+			</div>
+			<div class="form-group">
+				<label for="hours">Authorized Hours</label>
+				<span>${project.authorizedHours}</span>
+			</div>
+			<div class="form-group">
+				<label for="description">Description</label>
+				<span>${project.description}</span>
+			</div>
+			<div class="form-group">
+				<label for="special">Special</label>
+				<span>${project.special == true ? 'Yes' : 'No'}</span>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
