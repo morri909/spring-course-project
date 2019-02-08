@@ -39,18 +39,18 @@
 							class="form-control" name="sponsor"/>
 				</div>
 				<div class="form-group">
-					<label for="funds">Authorized Funds</label>
+					<label for="authorizedFunds">Authorized Funds</label>
 					<input type="text" id="funds"
-							class="form-control" name="funds"/>
+							class="form-control" name="authorizedFunds"/>
 				</div>
 				<div class="form-group">
-					<label for="hours">Authorized Hours</label>
+					<label for="authorizedHours">Authorized Hours</label>
 					<input type="text" id="hours"
-							class="form-control" name="hours"/>
+							class="form-control" name="authorizedHours"/>
 				</div>
 				<div class="form-group">
-					<label for="project-name">Description</label>
-					<textarea class="form-control" rows="3"></textarea>
+					<label for="description">Description</label>
+					<textarea class="form-control" rows="3" name="description"></textarea>
 				</div>
 				<div class="form-group">
 					<label for="special">Special</label>
