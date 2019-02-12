@@ -29,11 +29,7 @@
 				</div>
 				<div class="form-group">
 					<label for="type">Type</label>
-					<select name="type" class="form-control">
-						<option></option>
-						<option value="single">Single Year</option>
-						<option value="multi">Multi Year</option>
-					</select>
+					<form:select path="type" items="${typeOptions}" cssClass="form-control" id="type"/>
 				</div>
 				<div class="form-group">
 					<label for="cost">Cost</label><input type="text"
