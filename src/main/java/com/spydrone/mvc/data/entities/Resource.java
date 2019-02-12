@@ -1,6 +1,7 @@
 package com.spydrone.mvc.data.entities;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class Resource {
 
@@ -10,6 +11,7 @@ public class Resource {
 	private BigDecimal cost;
 	private String unitOfMeasure;
 	private String[] indicators;
+	private String notes;
 
 	public Resource() {
 		
@@ -54,10 +56,19 @@ public class Resource {
 		this.indicators = indicators;
 	}
 
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
 	@Override
 	public String toString() {
 		return "Resource [resourceId=" + resourceId + ", name=" + name + ", type=" + type + ", cost=" + cost
-				+ ", unitOfMeasure=" + unitOfMeasure + ", indicators=" + indicators.toString() + "]";
+				+ ", unitOfMeasure=" + unitOfMeasure + ", indicators=" + Arrays.toString(indicators)
+				+ ", notes=" + notes + "]";
 	}
 
 }

@@ -43,6 +43,10 @@
 					<label for="indicators">Indicators</label>
 					<form:checkboxes path="indicators" items="${checks}" cssClass="form-control"/>
 				</div>
+				<div class="form-group">
+					<label for="notes">Notes</label>
+					<form:textarea path="notes" cssClass="form-control" rows="3" id="notes"/>
+				</div>
 				<button type="submit" class="btn btn-default">Submit</button>
 			</div>
 		</form:form>
