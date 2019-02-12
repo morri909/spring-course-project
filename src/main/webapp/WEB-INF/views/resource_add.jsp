@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,11 +20,12 @@
 		<div class="row">
 			<h2>Resource</h2>
 		</div>
-		<form action="<spring:url value="/resource/save"/>" method="POST">
+		<spring:url value="/resource/save" var="formUrl"/>
+		<form:form action="${formUrl}" method="POST" modelAttribute="resource">
 			<div class="row">
 				<div class="form-group">
-					<label for="resource-name">Name</label><input type="text"
-						id="resource-name" class="form-control" name="name" />
+					<label for="resource-name">Name</label>
+					<form:input path="name" cssClass="form-control" id="resource-name"/>
 				</div>
 				<div class="form-group">
 					<label for="type">Type</label>
@@ -43,7 +45,7 @@
 				</div>
 				<button type="submit" class="btn btn-default">Submit</button>
 			</div>
-		</form>
+		</form:form>
 	</div>
 </body>
 </html>
