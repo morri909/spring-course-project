@@ -36,8 +36,12 @@
 						id="cost" class="form-control" name="cost" />
 				</div>
 				<div class="form-group">
-					<label for="unit-of-measure">Unit Of Measure</label><input type="text"
-						id="unit-of-measure" class="form-control" name="unitOfMeasure" />
+					<label for="unit-of-measure">Unit Of Measure</label>
+					<form:radiobuttons path="unitOfMeasure" items="${radios}" cssClass="form-control"/>
+				</div>
+				<div class="form-group">
+					<label for="indicators">Indicators</label>
+					<form:checkboxes path="indicators" items="${checks}" cssClass="form-control"/>
 				</div>
 				<button type="submit" class="btn btn-default">Submit</button>
 			</div>
