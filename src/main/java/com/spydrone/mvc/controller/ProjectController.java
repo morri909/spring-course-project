@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spydrone.mvc.data.entities.Project;
 import com.spydrone.mvc.data.services.ProjectService;
+import com.spydrone.mvc.data.validators.ProjectValidator;
 
 @Controller
 @RequestMapping("/project")
@@ -49,6 +52,11 @@ public class ProjectController {
 		System.out.println("invoking saveProject");
 		System.out.println(project);
 		return "project_add";
+	}
+
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.addValidators(new ProjectValidator());
 	}
 
 }
