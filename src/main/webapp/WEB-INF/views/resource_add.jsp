@@ -29,7 +29,7 @@
 				</div>
 				<div class="form-group">
 					<label for="type">Type</label>
-					<form:select path="type" items="${typeOptions}" cssClass="form-control" id="type"/>
+					<form:select path="type" items="${options}" cssClass="form-control" id="type"/>
 				</div>
 				<div class="form-group">
 					<label for="cost">Cost</label><input type="text"
