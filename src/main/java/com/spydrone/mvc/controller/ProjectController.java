@@ -2,8 +2,6 @@ package com.spydrone.mvc.controller;
 
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +32,7 @@ public class ProjectController {
 		return "projects";
 	}
 
+	@SuppressWarnings("serial")
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addProject(Model model) {
 		model.addAttribute("types", new ArrayList<String>() {{
