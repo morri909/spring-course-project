@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="<spring:url value="/resources/css/home.css"/>" type="text/css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="<spring:url value="/resources/js/resource.js"/>"></script>
 
 </head>
 <body>
@@ -42,6 +43,7 @@
 				<div class="form-group">
 					<label for="indicators">Indicators</label>
 					<form:checkboxes path="indicators" items="${checks}" cssClass="form-control"/>
+					<a id="request-link" href="<spring:url value="/resource/request" />">Send Request</a>
 				</div>
 				<div class="form-group">
 					<label for="notes">Notes</label>
