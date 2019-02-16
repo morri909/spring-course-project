@@ -26,6 +26,7 @@
 					<label for="project-name">Name</label>
 					<input type="text" id="project-name"
 							class="form-control" name="name"/>
+					<form:errors path="name"/>
 				</div>
 				<div class="form-group">
 					<label for="type">Type</label>
@@ -54,6 +55,7 @@
 				<div class="form-group">
 					<label for="description">Description</label>
 					<form:textarea cssClass="form-control" rows="3" path="description"/>
+					<form:errors path="description"/>
 				</div>
 				<div class="form-group">
 					<label for="special">Special</label>
