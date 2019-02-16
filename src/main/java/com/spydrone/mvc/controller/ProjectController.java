@@ -2,9 +2,12 @@ package com.spydrone.mvc.controller;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -48,7 +51,12 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String saveProject(@ModelAttribute Project project) {
+	public String saveProject(@Valid @ModelAttribute Project project, Errors errors) {
+		if (!errors.hasErrors()) {
+			System.out.println("The project validated.");
+		} else {
+			System.err.println("The project did not validate");
+		}
 		System.out.println("invoking saveProject");
 		System.out.println(project);
 		return "project_add";
