@@ -1,7 +1,5 @@
 package com.spydrone.mvc.interceptors;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,7 +18,6 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		counter.setHits(counter.getHits() + 1);
 		System.out.println("Hits: "  + counter.getHits());
-		request.setAttribute("currentDate", new Date());
 		return super.preHandle(request, response, handler);
 	}
 
