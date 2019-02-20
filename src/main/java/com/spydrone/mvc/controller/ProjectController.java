@@ -60,6 +60,7 @@ public class ProjectController {
 		project.setProjectId(Long.valueOf(55));
 		this.projectService.save(project);
 		attributes.addFlashAttribute("project", project);
+		System.out.println(project);
 		return "redirect:/";
 	}
 

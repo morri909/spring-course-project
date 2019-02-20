@@ -5,7 +5,7 @@ public class HitCounter {
 	private int hits;
 
 	public HitCounter() {
-		System.out.println("Hit Cunter Instantieated");
+		System.out.println("Hit Counter Instantiated");
 	}
 
 	public int getHits() {
