@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.spydrone.mvc.data.entities.Resource;
 import com.spydrone.mvc.data.services.ResourceService;
@@ -48,6 +51,15 @@ public class ResourceController {
 	public String request(@RequestBody String resource) {
 		System.out.println(resource);
 		return "The request has been sent for approval";
+	}
+
+	@RequestMapping(value="/upload", method=RequestMethod.POST)
+	public @ResponseBody String handleUpload(@RequestParam("file") MultipartFile file) {
+		if (!file.isEmpty()) {
+			return "The file size is " + file.getSize();
+		} else {
+			return "There was a problem";
+		}
 	}
 
 	@RequestMapping("/review")

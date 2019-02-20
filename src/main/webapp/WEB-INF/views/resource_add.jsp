@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Project Manager</title>
 
+	<script>var ctx = "${pageContext.request.contextPath}"</script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css"/>
 	<link rel="stylesheet" href="<spring:url value="/resources/css/home.css"/>" type="text/css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -52,6 +53,12 @@
 				<button type="submit" class="btn btn-default">Submit</button>
 			</div>
 		</form:form>
+
+		<spring:url value="/resource/upload" var="uploadUrl"/>
+		<form method="POST" enctype="multipart/form-data" action="${uploadUrl}">
+			File to upload: <input type="file" name="file"><br/>
+			<input type="submit" value="Upload">
+		</form>
 	</div>
 </body>
 </html>
