@@ -13,6 +13,7 @@ public class GlobalHandlerExceptionResolver implements HandlerExceptionResolver 
 	@Override
 	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 			Exception exception) {
+		System.err.println(exception);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("global_error");
 		return mav;

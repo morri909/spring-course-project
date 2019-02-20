@@ -5,13 +5,9 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
-import com.spydrone.mvc.data.validators.ProjectValidator;
 
 @ControllerAdvice(annotations=Controller.class)
 public class GlobalControllerAdvice {
@@ -21,13 +17,9 @@ public class GlobalControllerAdvice {
 		return new Date();
 	}
 
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.addValidators(new ProjectValidator());
-	}
-
 	@ExceptionHandler(NullPointerException.class)
-	public String handleError(HttpServletRequest request) {
+	public String handleError(HttpServletRequest request, Exception ex) {
+		System.err.println(ex);
 		return "controller_error";
 	}
 }

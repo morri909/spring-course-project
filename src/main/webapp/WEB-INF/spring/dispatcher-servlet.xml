@@ -15,6 +15,7 @@
 		<property name="converters">
 			<list>
 				<bean class="com.spydrone.mvc.converters.JulianDateConverter"/>
+				<bean class="com.spydrone.mvc.converters.ResourceConverter"/>
 			</list>
 		</property>
 	</bean>
