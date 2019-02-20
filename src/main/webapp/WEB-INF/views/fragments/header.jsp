@@ -6,7 +6,7 @@
 		</div>
 
 		<ul class="nav navbar-nav">
-			<li><a href="#">Home</a></li>
+			<li><a href="<spring:url value="/"/>">Home</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button"
@@ -24,7 +24,7 @@
 
 				<ul class="dropdown-menu" role="menu">
 					<li><a href="<spring:url value="/resource/add"/>">Add</a></li>
-					<li><a href="#">Find</a></li>
+					<li><a href="<spring:url value="/resource/find"/>">Find</a></li>
 				</ul>
 			</li>
 			<li>${currentDate}</li>

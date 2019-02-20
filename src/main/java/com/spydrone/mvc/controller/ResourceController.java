@@ -6,10 +6,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,18 +19,31 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.spydrone.mvc.data.entities.Resource;
+import com.spydrone.mvc.data.services.ResourceService;
 
 @Controller
 @RequestMapping("/resource")
 @SessionAttributes("resource")
 public class ResourceController {
 
+	@Autowired
+	private ResourceService service;
+
 	@RequestMapping("/add")
 	public String add(Model model) {
-		if (1==1) {
-			throw new RuntimeException("There was an error");
-		}
 		return "resource_add";
+	}
+
+	@RequestMapping("/find")
+	public String find(Model model) {
+		model.addAttribute("resources", service.findAll());
+		return "resources";
+	}
+
+	@RequestMapping("/{resourceId}")
+	@ResponseBody
+	public Resource findResource(@PathVariable("resourceId") Long resourceId) {
+		return service.find(resourceId);
 	}
 
 	@ExceptionHandler(NullPointerException.class)
